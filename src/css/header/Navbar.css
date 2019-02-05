@@ -1,0 +1,37 @@
+header {
+    background-color: #3d3d3b;
+    width: 100%;
+    color: #ffffff;
+
+    border-bottom-width: 2px;
+    border-bottom-color: #f70505;
+    border-bottom-style: solid;
+
+    position: sticky;
+    min-height: 55px;
+}
+
+#branding {
+    float: left;
+}
+
+#navbar {
+    float: right;
+}
+
+#navbar nav{
+    padding: 3px;
+    margin-top: 10px;
+}
+
+.nav {
+    text-decoration: none;
+}
+
+.nav-item {
+    list-style: none;
+    display: inline;
+    text-transform: uppercase;
+    margin-right: 15px;
+    padding: 3px;
+}
