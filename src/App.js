@@ -14,12 +14,7 @@ class App extends Component {
           <Navbar />
           <div className="container">
             <Route exact path="/" component={Home}/>
-            <Route exact path="/register" render={props => (
-              <React.Fragment>
-                <Register />
-              </React.Fragment>
-            )
-            }/>
+            <Route exact path="/register" component={Register}/>
             <Route exact path="/login" render={
               props => (
                 <React.Fragment>
