@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../../css/register/register.css';
 
 export default class Register extends Component {
     constructor() {
@@ -35,29 +34,86 @@ export default class Register extends Component {
     render() {
         return (
             <div>
-                <form id="register-form" onSubmit={this.onSubmit}>
-                    <h1>Register</h1>
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="">Name</label>
-                        <input name="name" className="form-textbox" type="text" placeholder="Name" value={this.state.name} onChange={this.onChange} />
+                <form onSubmit={this.onSubmit} style={formStyle}>
+                    <h1 style={pageTitle}>Register</h1>
+                    <div style={formGroup}>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Name"
+                            value={this.state.name}
+                            onChange={this.onChange}
+                            style={textboxStyle} />
                     </div>
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="">Email</label>
-                        <input name="email" className="form-textbox" type="email" placeholder="Email" value={this.state.email} onChange={this.onChange} />
+                    <div style={formGroup}>
+                        <input
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            value={this.state.email}
+                            onChange={this.onChange}
+                            style={textboxStyle} />
                     </div>
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="">Password</label>
-                        <input name="password" className="form-textbox" type="password" placeholder="Password" value={this.state.password} onChange={this.onChange} />
+                    <div style={formGroup}>
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.onChange}
+                            style={textboxStyle} />
                     </div>
-                    <div className="form-group">
-                        <label className="form-label" htmlFor="">Confirm Password</label>
-                        <input name="password2" className="form-textbox" type="password" placeholder="Confirm Password" value={this.state.password2} onChange={this.onChange} />
+                    <div style={formGroup}>
+                        <input
+                            name="password2"
+                            type="password"
+                            placeholder="Confirm Password"
+                            value={this.state.password2}
+                            onChange={this.onChange}
+                            style={textboxStyle} />
                     </div>
-                    <div className="form-group">
-                        <input className="form-submit" type="submit" value="Create" />
+                    <div style={formGroup}>
+                        <input
+                            type="submit"
+                            value="Register"
+                            style={buttonStyle} />
                     </div>
                 </form>
             </div>
         )
     }
 }
+
+// All the forms styling
+const formStyle = {
+    marginTop: '10px',
+    padding: '10px',
+    width: '60%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    overflow: 'hidden'
+}
+
+const pageTitle = {
+    textAlign: 'center',
+    marginBottom: '10px',
+    fontSize: '37px'
+}
+
+const formGroup = {
+    margin: '10px'
+}
+
+const textboxStyle = {
+    width: '100%',
+    height: '30px',
+    fontSize: '20px',
+    padding: '4px'
+}
+
+const buttonStyle = {
+    width: '100%',
+    height: '30px',
+    fontSize: '16px'
+}
+

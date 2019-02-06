@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
-import '../../css/login/Login.css';
+import React, { Component } from "react";
 
 export default class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       errors: {}
     };
 
@@ -15,37 +14,82 @@ export default class Login extends Component {
   }
 
   onChange(e) {
-    this.setState({[e.target.name]: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
-  onSubmit(e){
+  onSubmit(e) {
     e.preventDefault();
 
-    const newUser = {
+    const user = {
       email: this.state.email,
       password: this.state.password
     };
 
-    console.log(newUser);
+    console.log(user);
   }
   render() {
     return (
       <div>
-        <form id="login-form" onSubmit={this.onSubmit}>
-          <h1>Login</h1>
-          <div className="form-group">
-            <label htmlFor="" className="form-label">Email</label>
-            <input name="email" type="email" className="form-textbox" onChange={this.onChange}/>
+        <form onSubmit={this.onSubmit} style={formStyle}>
+          <h1 style={pageTitle}>Login</h1>
+          <div style={formGroup}>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={this.onChange}
+              style={textboxStyle} />
           </div>
-          <div className="form-group">
-            <label className="form-label" htmlFor="">Password</label>
-            <input name="password" className="form-textbox" type="password" onChange={this.onChange}/>
+          <div style={formGroup}>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={this.onChange}
+              style={textboxStyle} />
           </div>
-          <div className="form-gorup">
-            <input type="submit" value="Login" className="form-submit"/>
+          <div style={formGroup}>
+            <input
+              type="submit"
+              value="Login"
+              style={buttonStyle} />
           </div>
         </form>
       </div>
-    )
+    );
   }
+}
+
+// All the forms styling
+const formStyle = {
+  marginTop: "10px",
+  padding: "10px",
+
+  width: "50%",
+  marginLeft: "auto",
+  marginRight: "auto",
+  overflow: "hidden"
+}
+
+const pageTitle = {
+  textAlign: 'center',
+  marginBottom: '10px',
+  fontSize: '37px'
+}
+
+const formGroup = {
+  margin: '10px'
+}
+
+const textboxStyle = {
+  width: '100%',
+  height: '30px',
+  fontSize: '20px',
+  padding: '4px'
+}
+
+const buttonStyle = {
+  width: '100%',
+  height: '30px',
+  fontSize: '16px'
 }
