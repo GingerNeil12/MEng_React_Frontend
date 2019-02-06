@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class Register extends Component {
     constructor() {
@@ -12,6 +13,8 @@ export default class Register extends Component {
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
+
     }
 
     onChange(e) {
@@ -28,7 +31,9 @@ export default class Register extends Component {
             password2: this.state.password2
         };
 
-        console.log(newUser)
+        axios.post('http://localhost:5000/api/users/register', newUser)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
     }
 
     render() {
@@ -41,7 +46,7 @@ export default class Register extends Component {
                             name="name"
                             type="text"
                             placeholder="Name"
-                            required="true"
+                            required={true}
                             value={this.state.name}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -51,7 +56,7 @@ export default class Register extends Component {
                             name="email"
                             type="email"
                             placeholder="Email"
-                            required="true"
+                            required={true}
                             value={this.state.email}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -61,7 +66,7 @@ export default class Register extends Component {
                             name="password"
                             type="password"
                             placeholder="Password"
-                            required="true"
+                            required={true}
                             value={this.state.password}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -71,7 +76,7 @@ export default class Register extends Component {
                             name="password2"
                             type="password"
                             placeholder="Confirm Password"
-                            required="true"
+                            required={true}
                             value={this.state.password2}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -119,5 +124,5 @@ const buttonStyle = {
     width: '100%',
     height: '30px',
     fontSize: '16px'
-} 
+}
 
