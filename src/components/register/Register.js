@@ -41,6 +41,7 @@ export default class Register extends Component {
                             name="name"
                             type="text"
                             placeholder="Name"
+                            required="true"
                             value={this.state.name}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -50,6 +51,7 @@ export default class Register extends Component {
                             name="email"
                             type="email"
                             placeholder="Email"
+                            required="true"
                             value={this.state.email}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -59,6 +61,7 @@ export default class Register extends Component {
                             name="password"
                             type="password"
                             placeholder="Password"
+                            required="true"
                             value={this.state.password}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -68,6 +71,7 @@ export default class Register extends Component {
                             name="password2"
                             type="password"
                             placeholder="Confirm Password"
+                            required="true"
                             value={this.state.password2}
                             onChange={this.onChange}
                             style={textboxStyle} />
@@ -115,5 +119,5 @@ const buttonStyle = {
     width: '100%',
     height: '30px',
     fontSize: '16px'
-}
+} 
 
