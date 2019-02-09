@@ -1,29 +1,20 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 export default class Header extends Component {
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#">
-                        <Link style={BrandStyle} to="/">Circles</Link>
-                    </Navbar.Brand>
+                    <Navbar.Brand href="/" style={BrandStyle}>Circles</Navbar.Brand>
                     <Navbar.Toggle aria-controls="toggle-navbar"/>
                     <Navbar.Collapse id="toggle-navbar">
                             <Nav>
-                                <Nav.Link href="#">
-                                    <Link style={LinkStyle} to="#">About</Link>
-                                </Nav.Link>
+                                <Nav.Link href="/about" style={LinkStyle}>About</Nav.Link>
                             </Nav>
                             <Nav className="ml-auto">
-                                <Nav.Link href="#">
-                                    <Link style={LinkStyle} to="/register">Register</Link>
-                                </Nav.Link>
-                                <Nav.Link href="#">
-                                    <Link style={LinkStyle} to="/login">Login</Link>
-                                </Nav.Link>
+                                <Nav.Link href="/register" style={LinkStyle}>Register</Nav.Link>
+                                <Nav.Link href="/login" style={LinkStyle}>Login</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                 </Container>
@@ -32,13 +23,11 @@ export default class Header extends Component {
     }
 }
 
-const BrandStyle = {
-    color: "#ffffff",
-    fontWeight: "bold",
-    textDecoration: "none"
-}
-
 const LinkStyle = {
     color: "#ffffff",
     textDecoration: "none"
+}
+
+const BrandStyle = {
+    fontWeight: "bold"
 }

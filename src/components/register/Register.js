@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import { Form, Button } from 'react-bootstrap';
+import '../../css/layout/Register.css';
 
 export default class Register extends Component {
     constructor() {
         super();
+
         this.state = {
             name: '',
             email: '',
             password: '',
             password2: '',
             errors: {}
-        };
+        }
+
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-
-
     }
 
-    onChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
     }
 
-    onSubmit(e) {
+    onSubmit = (e) => {
         e.preventDefault();
 
         const newUser = {
@@ -29,100 +30,73 @@ export default class Register extends Component {
             email: this.state.email,
             password: this.state.password,
             password2: this.state.password2
-        };
+        }
 
-        axios.post('http://localhost:5000/api/users/register', newUser)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err.request.data));
+        // axios goes here
+        console.log(newUser);
     }
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.onSubmit} style={formStyle}>
-                    <h1 style={pageTitle}>Register</h1>
-                    <div style={formGroup}>
-                        <input
-                            name="name"
+            <div id="register-form">
+                <h1 style={RegisterTitle}>Register</h1>
+                <Form style={FormStyle} onSubmit={this.onSubmit} id="register-form">
+                    <Form.Group id="name">
+                        <Form.Control
+                            size="lg"
                             type="text"
+                            name="name"
                             placeholder="Name"
-                            required={true}
                             value={this.state.name}
-                            onChange={this.onChange}
-                            style={textboxStyle} />
-                    </div>
-                    <div style={formGroup}>
-                        <input
-                            name="email"
+                            onChange={this.onChange} />
+                    </Form.Group>
+                    <Form.Group id="email">
+                        <Form.Control
+                            size="lg"
                             type="email"
+                            name="email"
                             placeholder="Email"
-                            required={true}
                             value={this.state.email}
-                            onChange={this.onChange}
-                            style={textboxStyle} />
-                    </div>
-                    <div style={formGroup}>
-                        <input
+                            onChange={this.onChange} />
+                    </Form.Group>
+                    <Form.Group id="password">
+                        <Form.Control
+                            size="lg"
+                            type="password"
                             name="password"
-                            type="password"
                             placeholder="Password"
-                            required={true}
                             value={this.state.password}
-                            onChange={this.onChange}
-                            style={textboxStyle} />
-                    </div>
-                    <div style={formGroup}>
-                        <input
-                            name="password2"
+                            onChange={this.onChange} />
+                    </Form.Group>
+                    <Form.Group id="password2">
+                        <Form.Control
+                            size="lg"
                             type="password"
+                            name="password2"
                             placeholder="Confirm Password"
-                            required={true}
                             value={this.state.password2}
-                            onChange={this.onChange}
-                            style={textboxStyle} />
-                    </div>
-                    <div style={formGroup}>
-                        <input
+                            onChange={this.onChange} />
+                    </Form.Group>
+                    <Form.Group id="submit">
+                        <Button
+                            variant="primary"
                             type="submit"
-                            value="Register"
-                            style={buttonStyle} />
-                    </div>
-                </form>
+                            style={ButtonStyle}>Register</Button>
+                    </Form.Group>
+                </Form>
             </div>
         )
     }
 }
 
-// All the forms styling
-const formStyle = {
-    marginTop: '10px',
-    padding: '10px',
-    width: '60%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    overflow: 'hidden'
+const RegisterTitle = {
+    textAlign: "center",
+    marginTop: "1em"
 }
-
-const pageTitle = {
-    textAlign: 'center',
-    marginBottom: '10px',
-    fontSize: '37px'
+const FormStyle = {
+    width: "45%",
+    margin: "2em auto"
 }
-
-const formGroup = {
-    margin: '10px'
+const ButtonStyle = {
+    width: "100%"
 }
-
-const textboxStyle = {
-    width: '100%',
-    height: '30px',
-    fontSize: '20px',
-    padding: '4px'
-}
-
-const buttonStyle = {
-    width: '100%',
-    height: '30px',
-    fontSize: '16px'
-}
-
