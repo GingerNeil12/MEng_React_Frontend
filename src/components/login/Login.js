@@ -37,7 +37,7 @@ export default class Login extends Component {
                             name="email"
                             type="email"
                             placeholder="Email"
-                            required="true"
+                            required={true}
                             onChange={this.onChange}
                             style={textboxStyle}
                         />
@@ -47,7 +47,7 @@ export default class Login extends Component {
                             name="password"
                             type="password"
                             placeholder="Password"
-                            required="true"
+                            required={true}
                             onChange={this.onChange}
                             style={textboxStyle}
                         />

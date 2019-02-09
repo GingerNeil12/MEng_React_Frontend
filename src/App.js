@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import Register from './components/register/Register';
 import Login from './components/login/Login';
-import Navbar from './components/header/Navbar';
+import Header from './components/header/Header';
 import './App.css';
 
 class App extends Component {
@@ -11,18 +11,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar />
-          <div className="container">
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/register" component={Register}/>
-            <Route exact path="/login" render={
-              props => (
-                <React.Fragment>
-                  <Login />
-                </React.Fragment>
-              )
-            }/>
-          </div>
+          <Header />
         </div>
       </Router>
     );
