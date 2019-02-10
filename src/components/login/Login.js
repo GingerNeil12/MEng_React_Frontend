@@ -65,7 +65,7 @@ export default class Login extends Component {
 }
 
 const FormStyle = {
-    width: "45%",
+    width: "30%",
     margin: "2em auto"
 }
 

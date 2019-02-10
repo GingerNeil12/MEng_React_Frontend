@@ -6,7 +6,9 @@ export default class Header extends Component {
         return (
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                 <Container>
-                    <Navbar.Brand href="/" style={BrandStyle}>Circles</Navbar.Brand>
+                    <Navbar.Brand href="/" style={BrandStyle}>
+                        <h3>Circles</h3>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="toggle-navbar"/>
                     <Navbar.Collapse id="toggle-navbar">
                             <Nav>
