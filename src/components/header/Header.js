@@ -7,7 +7,7 @@ export default class Header extends Component {
             <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                 <Container>
                     <Navbar.Brand href="/" style={BrandStyle}>
-                        <h3>Circles</h3>
+                        Circles
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="toggle-navbar"/>
                     <Navbar.Collapse id="toggle-navbar">
@@ -31,5 +31,7 @@ const LinkStyle = {
 }
 
 const BrandStyle = {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontSize: "1.6em"
 }
+

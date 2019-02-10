@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 import '../../css/layout/Register.css';
 
 export default class Register extends Component {
@@ -13,6 +14,7 @@ export default class Register extends Component {
             password: '',
             password2: '',
             validated: false,
+            success: false,
             errors: {}
         }
 
@@ -38,16 +40,15 @@ export default class Register extends Component {
         // Redirect to login after successful result
         // Set the Forms to invalid if unsuccessful
         axios.post('http://localhost:5000/api/users/register', newUser)
-            .then(result => console.log(result.data))
+            .then(result => this.setState({success: true}))
             .catch(err => {
                 this.setState({ errors: err.response.data });
                 this.setState({ validated: false });
-                console.log(this.state.errors);
             });
     }
 
     render() {
-        const { validated, errors } = this.state;
+        const { validated, errors, success } = this.state;
         return (
             <div id="register-form">
                 <h1 style={RegisterTitle}>Register</h1>
@@ -117,6 +118,9 @@ export default class Register extends Component {
                             style={ButtonStyle}>Register</Button>
                     </Form.Group>
                 </Form>
+                {success && (
+                    <Redirect to='/register-success'/>
+                )}
             </div>
         )
     }
