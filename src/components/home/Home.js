@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, Button, ButtonGroup } from 'react-bootstrap';
 
-export default class Home extends Component {    
+export default class Home extends Component {
     render() {
         return (
             <Container>
@@ -9,12 +9,19 @@ export default class Home extends Component {
                     <h1 className="display-4">Circles!</h1>
                     <p className="lead">We will draw all your Venn and Euler Diagrams</p>
                     <ButtonGroup>
-                        <Button style={ButtonStyle} size="lg" variant="outline-primary">
-                            <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_" style={LinkStyle}>Go To Venn</a>
-                        </Button>
-                        <Button style={ButtonStyle} size="lg" variant="outline-primary">
-                            <a href="https://en.wikipedia.org/wiki/Euler_diagram" target="_" style={LinkStyle}>Go To Euler</a>
-                        </Button>
+                        <Button
+                            style={ButtonStyle}
+                            size="lg"
+                            variant="outline-primary"
+                            href="https://en.wikipedia.org/wiki/Venn_diagram"
+                            target="_">Venn Diagrams</Button>
+
+                        <Button
+                            style={ButtonStyle}
+                            size="lg"
+                            variant="outline-primary"
+                            href="https://en.wikipedia.org/wiki/Euler_diagram"
+                            target="_">Euler Diagrams</Button>
                     </ButtonGroup>
                 </Jumbotron>
             </Container>
@@ -28,10 +35,5 @@ const JumbotronStyle = {
 
 const ButtonStyle = {
     margin: "0 .5em"
-}
-
-const LinkStyle = {
-    textDecoration: "none",
-    color: "inherit"
 }
 

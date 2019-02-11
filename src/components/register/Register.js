@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap';
-import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import '../../css/layout/Register.css';
+import { connect } from 'react-redux';
+import { registerUser } from '../../actions/authActions';
+import PropTypes from 'prop-types';
 
-export default class Register extends Component {
+
+class Register extends Component {
     constructor() {
         super();
 
@@ -37,18 +39,13 @@ export default class Register extends Component {
             password2: this.state.password2
         };
 
-        // Redirect to login after successful result
-        // Set the Forms to invalid if unsuccessful
-        axios.post('http://localhost:5000/api/users/register', newUser)
-            .then(result => this.setState({success: true}))
-            .catch(err => {
-                this.setState({ errors: err.response.data });
-                this.setState({ validated: false });
-            });
+        this.props.registerUser(newUser);
     }
 
     render() {
         const { validated, errors, success } = this.state;
+        const { user } = this.props.auth;
+
         return (
             <div id="register-form">
                 <h1 style={RegisterTitle}>Register</h1>
@@ -137,3 +134,14 @@ const FormStyle = {
 const ButtonStyle = {
     width: "100%"
 }
+
+Register.propTypes = {
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps, {registerUser})(Register);

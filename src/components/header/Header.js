@@ -32,6 +32,6 @@ const LinkStyle = {
 
 const BrandStyle = {
     fontWeight: "bold",
-    fontSize: "1.6em"
+    fontSize: "1.4em"
 }
 
