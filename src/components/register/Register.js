@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 
@@ -15,13 +15,18 @@ class Register extends Component {
             email: '',
             password: '',
             password2: '',
-            validated: false,
             success: false,
             errors: {}
         }
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors) {
+            this.setState({errors: nextProps.errors});
+        }
     }
 
     onChange = (e) => {
@@ -39,12 +44,11 @@ class Register extends Component {
             password2: this.state.password2
         };
 
-        this.props.registerUser(newUser);
+        this.props.registerUser(newUser, this.props.history);
     }
 
     render() {
-        const { validated, errors, success } = this.state;
-        const { user } = this.props.auth;
+        const { errors } = this.state
 
         return (
             <div id="register-form">
@@ -53,8 +57,7 @@ class Register extends Component {
                     id="register-form"
                     noValidate
                     style={FormStyle}
-                    onSubmit={this.onSubmit}
-                    validated={validated}>
+                    onSubmit={this.onSubmit}>
                     <Form.Group id="name">
                         <Form.Control
                             size="lg"
@@ -115,9 +118,6 @@ class Register extends Component {
                             style={ButtonStyle}>Register</Button>
                     </Form.Group>
                 </Form>
-                {success && (
-                    <Redirect to='/register-success'/>
-                )}
             </div>
         )
     }
@@ -137,11 +137,13 @@ const ButtonStyle = {
 
 Register.propTypes = {
     registerUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired.auth,
+    errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-    auth: state.auth
+    auth: state.auth,
+    errors: state.errors
 });
 
-export default connect(mapStateToProps, {registerUser})(Register);
+export default connect(mapStateToProps, {registerUser})(withRouter(Register));
