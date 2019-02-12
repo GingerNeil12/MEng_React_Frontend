@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { loginUser } from '../../actions/authActions';
 
-export default class Login extends Component {
+import PropTypes from 'prop-types';
+
+class Login extends Component {
     constructor() {
         super();
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: {}
         };
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            this.props.history.push('/dashboard');
+        }
+
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors })
+        }
     }
 
     onChange = (e) => {
@@ -21,19 +36,24 @@ export default class Login extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const user = {
+        const userData = {
             email: this.state.email,
             password: this.state.password
         }
 
-        console.log(user)
+        this.props.loginUser(userData);
     }
 
     render() {
+        const { errors } = this.state;
+
         return (
             <div>
                 <h1 style={LoginTitle}>Login</h1>
-                <Form style={FormStyle} onSubmit={this.onSubmit}>
+                <Form
+                    style={FormStyle}
+                    onSubmit={this.onSubmit}
+                    noValidate>
                     <Form.Group id="email">
                         <Form.Control
                             size="lg"
@@ -41,7 +61,11 @@ export default class Login extends Component {
                             name="email"
                             placeholder="Email"
                             value={this.state.email}
-                            onChange={this.onChange} />
+                            onChange={this.onChange}
+                            isInvalid={errors.email} />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.email}
+                        </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group id="password">
                         <Form.Control
@@ -50,7 +74,11 @@ export default class Login extends Component {
                             name="password"
                             placeholder="Password"
                             value={this.state.password}
-                            onChange={this.onChange} />
+                            onChange={this.onChange}
+                            isInvalid={errors.password} />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.password}
+                        </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>
                         <Button
@@ -77,3 +105,16 @@ const LoginTitle = {
 const ButtonStyle = {
     width: "100%"
 }
+
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    auth: state.auth,
+    errors: state.errors
+})
+
+export default connect(mapStateToProps, { loginUser })(Login);
