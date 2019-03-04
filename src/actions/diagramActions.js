@@ -24,19 +24,19 @@ export const getDiagrams = () => dispatch => {
 
     axios
         .get('http://localhost:5000/api/diagram/user')
-        .then(result => {
+        .then(result => 
             dispatch({
-                type: GET_DIAGRAMS,
-                payload: result.data
-            })
+            type: GET_DIAGRAMS,
+            payload: result.data
         })
+    )
 }
 
 export const getDiagram = id => dispatch => {
     dispatch(setDiagramLoading())
 
     axios
-        .get('http://localhost:5000/api/diagram/id/${id}')
+        .get('http://localhost:5000/api/diagram/id/' + id)
         .then(result => {
             dispatch({
                 type: GET_DIAGRAM,
