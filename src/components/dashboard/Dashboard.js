@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getDiagrams } from '../../actions/diagramActions';
-import { Table } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import Diagrams from './Diagrams';
 
 
 class Dashboard extends Component {
@@ -15,43 +15,24 @@ class Dashboard extends Component {
     return (
       <div>
         <h2 style={titleStyle}>My Diagrams</h2>
-        <Table 
-          striped 
-          bordered 
-          hover 
-          variant="primary" 
-          style={tableStyle}>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Options</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-            </tbody>
-        </Table>
+        <Diagrams diagrams={this.props.diagrams}/>
       </div>
     )
   }
 }
 
-const tableStyle = {
-  width: "80%",
-  margin: "auto",
-  marginTop: "2em"
-}
 const titleStyle = {
   textAlign: "center",
   marginTop: "1em"
 }
 
 Dashboard.propTypes = {
-  getDiagrams: PropTypes.func.isRequired
+  getDiagrams: PropTypes.func.isRequired,
+  diagrams: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-    diagrams: state.diagrams,
+    diagrams: state.diagram,
     auth: state.auth
 });
 
