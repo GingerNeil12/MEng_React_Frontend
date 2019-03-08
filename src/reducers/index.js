@@ -8,5 +8,5 @@ import diagramReducer from './diagramReducer';
 export default combineReducers({
     auth: authReducer,
     errors: errorReducer,
-    diagram: diagramReducer
+    posts: diagramReducer
 });

@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
+import DiagramItem from './DiagramItem';
 import PropTypes from 'prop-types';
 
 class Diagrams extends Component {
   render() {
-    return (
-      <div>
-        {console.log(this.props.diagrams)}
-      </div>
-    )
+    return this.props.diagrams.diagrams.map((diagram) => (
+      <DiagramItem key={diagram._id} diagram={diagram}/>
+    ))
   }
 }
 

@@ -32,7 +32,7 @@ Dashboard.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    diagrams: state.diagram,
+    diagrams: state.posts,
     auth: state.auth
 });
 
