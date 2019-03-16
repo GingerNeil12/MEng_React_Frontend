@@ -15,6 +15,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h2 style={titleStyle}>My Diagrams</h2>
+        <p style={titleStyle}>NEW DIAGRAM</p>
         <Diagrams diagrams={this.props.diagrams}/>
       </div>
     )

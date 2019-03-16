@@ -6,7 +6,9 @@ class DiagramItem extends Component {
         const { name } = this.props.diagram;
         return (
             <div style={formStyle}>
-                <p>{name}</p>
+                <div style={itemStyle}>
+                    <p>{name}</p>
+                </div>
             </div>
         )
     }
@@ -17,6 +19,10 @@ const formStyle = {
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '2em'
+}
+
+const itemStyle = {
+    borderBottom: '1px dotted'
 }
 
 DiagramItem.propTypes = {
