@@ -7,7 +7,12 @@ class DiagramItem extends Component {
         return (
             <div style={formStyle}>
                 <div style={itemStyle}>
-                    <p>{name}</p>
+                    <div style={itemTitle}>
+                        <p>{name}</p>
+                    </div>
+                    <div style={itemOptions}>
+                        <p>View | Edit</p>
+                    </div>
                 </div>
             </div>
         )
@@ -23,6 +28,15 @@ const formStyle = {
 
 const itemStyle = {
     borderBottom: '1px dotted'
+}
+
+const itemTitle = {
+    display: 'inline-block'
+}
+
+const itemOptions = {
+    display: 'inline-block',
+    float: 'right'
 }
 
 DiagramItem.propTypes = {

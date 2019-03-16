@@ -10,6 +10,7 @@ class Header extends Component {
     onLogoutClick = (e) => {
         e.preventDefault();
         this.props.logoutUser();
+        //this.context.history.push('/login');
     }
 
     render() {

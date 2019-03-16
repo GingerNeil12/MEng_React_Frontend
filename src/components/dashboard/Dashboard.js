@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getDiagrams } from '../../actions/diagramActions';
 import PropTypes from 'prop-types';
 import Diagrams from './Diagrams';
+import { Link } from 'react-router-dom';
 
 
 class Dashboard extends Component {
@@ -15,7 +16,7 @@ class Dashboard extends Component {
     return (
       <div>
         <h2 style={titleStyle}>My Diagrams</h2>
-        <p style={titleStyle}>NEW DIAGRAM</p>
+        <Link to="/newDiagram"><p style={newDiagramLinkStyle}>NEW DIAGRAM</p></Link>
         <Diagrams diagrams={this.props.diagrams}/>
       </div>
     )
@@ -25,6 +26,12 @@ class Dashboard extends Component {
 const titleStyle = {
   textAlign: "center",
   marginTop: "1em"
+}
+
+const newDiagramLinkStyle = {
+  textAlign: "center",
+  marginTop: "1em",
+  textDecoration: 'underline'
 }
 
 Dashboard.propTypes = {
