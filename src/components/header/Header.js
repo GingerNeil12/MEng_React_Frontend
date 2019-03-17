@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
+import { withRouter } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,7 @@ class Header extends Component {
 
     onLogoutClick = (e) => {
         e.preventDefault();
-        this.props.logoutUser();
+        this.props.logoutUser(this.props.history);
         //this.context.history.push('/login');
     }
 
@@ -81,4 +82,4 @@ const mapStateToProps = (state) => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, { logoutUser })(Header);
+export default connect(mapStateToProps, { logoutUser })(withRouter(Header));

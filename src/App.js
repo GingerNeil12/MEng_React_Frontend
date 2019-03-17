@@ -13,7 +13,6 @@ import RegisterSuccess from './components/register/RegisterSuccess';
 import Login from './components/login/Login';
 import Header from './components/header/Header';
 import Dashboard from './components/dashboard/Dashboard';
-import NewDiagram from './components/diagram/NewDiagram';
 
 import './App.css';
 
@@ -35,7 +34,6 @@ class App extends Component {
                         <Route exact path="/registerSuccess" component={RegisterSuccess} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/dashboard" component={Dashboard}/>
-                        <Route exact path="/newDiagram" component={NewDiagram}/>
                     </div>
                 </Router>
             </Provider>
