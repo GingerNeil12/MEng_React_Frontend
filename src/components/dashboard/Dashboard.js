@@ -4,6 +4,7 @@ import { getDiagrams } from '../../actions/diagramActions';
 import PropTypes from 'prop-types';
 import Diagrams from './Diagrams';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 
 class Dashboard extends Component {
@@ -15,23 +16,23 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <h2 style={titleStyle}>My Diagrams</h2>
-        <Link to="/newDiagram"><p style={newDiagramLinkStyle}>NEW DIAGRAM</p></Link>
+        <div style={formHeaderStyle}>
+          <h2>My Diagrams</h2>
+          <Button variant="primary" style={newDiagramButtonStyle}>New Diagram</Button>
+        </div>
         <Diagrams diagrams={this.props.diagrams}/>
       </div>
     )
   }
 }
 
-const titleStyle = {
+const formHeaderStyle = {
   textAlign: "center",
-  marginTop: "1em"
+  marginTop: "2em"
 }
 
-const newDiagramLinkStyle = {
-  textAlign: "center",
-  marginTop: "1em",
-  textDecoration: 'underline'
+const newDiagramButtonStyle = {
+  marginTop: '1em'
 }
 
 Dashboard.propTypes = {
