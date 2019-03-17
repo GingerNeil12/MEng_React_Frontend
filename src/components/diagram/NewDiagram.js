@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import DiagramControls from './DiagramControls'
 
 class NewDiagram extends Component {
   render() {
     return (
       <div style={newDiagramConatiner}>
         <div style={sectionOne}>
-          <p>DIAGRAM CONTROLS</p>
+          <DiagramControls/>
         </div>
         <div style={sectionTwo}>
           <p>DIAGRAM GOES HERE</p>
