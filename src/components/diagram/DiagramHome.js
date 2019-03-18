@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import DiagramControls from './DiagramControls'
 
-// This is for the layout and will control the shapes etc
-
 class DiagramHome extends Component {
     constructor() {
         super();
