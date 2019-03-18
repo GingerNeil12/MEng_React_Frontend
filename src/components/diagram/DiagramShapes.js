@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import Shape from './Shape'
 
 class DiagramShapes extends Component {
   render() {
     return (
       <div style={formStyle}>
-        <p>Update</p>
+        {this.props.shapes.map((shape) => (
+            <Shape key={shape.id} shape={shape}/>
+        ))}
       </div>
     )
   }
