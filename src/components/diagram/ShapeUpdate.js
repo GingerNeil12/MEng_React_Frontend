@@ -4,7 +4,7 @@ class ShapeUpdate extends Component {
   render() {
     return (
       <div>
-        
+        {this.props.shape.name}
       </div>
     )
   }
