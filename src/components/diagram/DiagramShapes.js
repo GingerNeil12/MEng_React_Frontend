@@ -17,7 +17,8 @@ const formStyle = {
     width: '100%',
     borderStyle: 'dotted',
     borderWidth: '1px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    paddingBottom: '1em'
 }
 
 export default DiagramShapes
