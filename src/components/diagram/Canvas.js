@@ -34,6 +34,8 @@ class Canvas extends Component {
             ctx.fillStyle = '#000000';
             ctx.fillText(shape.name, shape.x, shape.y);
             ctx.stroke();
+            
+            return shape;
         })
     }
 
