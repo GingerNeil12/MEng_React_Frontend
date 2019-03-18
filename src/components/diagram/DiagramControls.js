@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import DiagramName from './DiagramName';
+import DiagramShapes from './DiagramShapes'
 
 // This component is for all the controls like updating and saving etc
 
@@ -15,7 +16,7 @@ class DiagramControls extends Component {
             <DiagramName name={this.props.diagram.name} />
         </div>
         <div style={diagramControlComponentStyle}>
-            <p>Diagram Update Goes here</p>
+            <DiagramShapes shapes={this.props.diagram.shapes}/>
         </div>
         <div style={diagramControlComponentStyle}>
             <Button variant="secondary" style={buttonStyle}>Verify</Button>
