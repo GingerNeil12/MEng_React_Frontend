@@ -42,7 +42,17 @@ class DiagramHome extends Component {
     }
 
     update = (updateShape) => {
-        console.log(updateShape)
+        this.setState({shapes: this.state.diagram.shapes.map
+            (shape => {
+                if(shape.id === updateShape.id){
+                    shape.name = updateShape.name;
+                    shape.x = updateShape.x;
+                    shape.y = updateShape.y;
+                    shape.width = updateShape.width;
+                    shape.color = updateShape.color
+                }
+                return shape;
+            })})
     }
   render() {
     return (
