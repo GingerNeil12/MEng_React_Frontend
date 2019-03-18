@@ -13,25 +13,25 @@ class DiagramHome extends Component {
                     {
                         sid: 1,
                         name: 'A',
-                        x: 250,
-                        y: 250,
-                        width: 20,
+                        x: 100,
+                        y: 100,
+                        width: 35,
                         color: '#ff0000'
                     },
                     {
                         sid: 2,
                         name: 'B',
-                        x: 200,
-                        y: 200,
-                        width: 20,
+                        x: 80,
+                        y: 40,
+                        width: 26,
                         color: '#00ff00'
                     },
                     {
                         sid: 3,
                         name: 'C',
-                        x: 300,
-                        y: 300,
-                        width: 20,
+                        x: 145,
+                        y: 65,
+                        width: 18,
                         color: '#0000ff'
                     }
                 ]
