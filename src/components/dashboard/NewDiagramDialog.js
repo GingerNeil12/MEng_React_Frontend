@@ -22,7 +22,7 @@ class NewDiagramDialog extends Component {
                                 />
                             </Form.Group>
                             <Form.Group id="submit">
-                                <Button variant="primary" style={buttonStyle}>Submit</Button>
+                                <Button variant="primary" href='diagramHome' style={buttonStyle}>Submit</Button>
                                 <Button variant="danger" onClick={this.props.closePopup} style={buttonStyle}>Cancel</Button>
                             </Form.Group>
                         </Form>
