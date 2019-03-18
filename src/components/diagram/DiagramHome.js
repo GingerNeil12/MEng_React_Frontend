@@ -41,7 +41,7 @@ class DiagramHome extends Component {
     return (
       <div style={formStyle}>
         <div style={sectionOne}>
-            <DiagramControls/>
+            <DiagramControls diagram={this.state.diagram}/>
         </div>
         <div style={sectionTwo}>
             <p>Diagram</p>

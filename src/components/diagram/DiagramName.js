@@ -12,6 +12,7 @@ class DiagramName extends Component {
                 type="text"
                 placeholder="Diagram Name"
                 style={textBoxStyle}
+                value={this.props.name}
               />
             </Form.Group>
             <Form.Group id="saveButton">
