@@ -1,19 +1,36 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 class NewDiagramDialog extends Component {
-  render() {
-    return (
-      <div style={popup}>
-        <div style={popupInner}>
-            <div style={formStyle}>
-                <p>BLAH</p>
-                <Button variant="primary" onClick={this.props.closePopup}>Press Me</Button>
+    render() {
+        return (
+            <div style={popup}>
+                <div style={popupInner}>
+                    <div style={formStyle}>
+                        <h2>New Data</h2>
+                        <Form
+                            id="newDataForm"
+                            noValidate
+                        >
+                            <Form.Group id="newData">
+                                <Form.Control
+                                    size="lg"
+                                    type="text"
+                                    name="data"
+                                    placeholder="New Data"
+                                    style={textBoxStyle}
+                                />
+                            </Form.Group>
+                            <Form.Group id="submit">
+                                <Button variant="primary" style={buttonStyle}>Submit</Button>
+                                <Button variant="danger" onClick={this.props.closePopup} style={buttonStyle}>Cancel</Button>
+                            </Form.Group>
+                        </Form>
+                    </div>
+                </div>
             </div>
-        </div>
-      </div>
-    )
-  }
+        )
+    }
 }
 
 const popup = {
@@ -26,19 +43,34 @@ const popup = {
     bottom: '0',
     margin: 'auto',
     backgroundColor: 'rgba(0,0,0,0.5)'
-  }
-  const popupInner = {
+}
+const popupInner = {
     position: 'absolute',
-    left: '25%',
-    right:'25%',
-    top: '25%',
-    bottom: '25%',
+    left: '31%',
+    right: '31%',
+    top: '31%',
+    bottom: '31%',
     margin: 'auto',
     background: 'white'
-  }
+}
 
-  const formStyle = {
-      textAlign: 'center'
-  }
+const formStyle = {
+    textAlign: 'center',
+    width: '80%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: '1em'
+}
+
+const textBoxStyle = {
+    marginTop: '1em'
+}
+
+const buttonStyle = {
+    width: '60%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: '1em'
+}
 
 export default NewDiagramDialog;

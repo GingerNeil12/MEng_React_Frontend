@@ -29,7 +29,7 @@ class Dashboard extends Component {
       <div>
         <div style={formHeaderStyle}>
           <h2>My Diagrams</h2>
-          <Button variant="primary" onClick={this.togglePopup.bind(this)} style={newDiagramButtonStyle}>New Diagram</Button>
+          <Button variant="success" onClick={this.togglePopup.bind(this)} style={newDiagramButtonStyle}>New Diagram</Button>
         </div>
         <Diagrams diagrams={this.props.diagrams} />
 
