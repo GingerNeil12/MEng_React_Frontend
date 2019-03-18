@@ -3,14 +3,25 @@ import { connect } from 'react-redux';
 import { getDiagrams } from '../../actions/diagramActions';
 import PropTypes from 'prop-types';
 import Diagrams from './Diagrams';
-import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import NewDiagramDialog from './NewDiagramDialog';
 
 
 class Dashboard extends Component {
-    componentDidMount() {
-        this.props.getDiagrams();
-    }
+  constructor() {
+    super();
+    this.state = {
+      showPopup: false
+    };
+  }
+
+  togglePopup () {
+    this.setState({showPopup: !this.state.showPopup});
+  }
+
+  componentDidMount() {
+    this.props.getDiagrams();
+  }
 
 
   render() {
@@ -18,9 +29,14 @@ class Dashboard extends Component {
       <div>
         <div style={formHeaderStyle}>
           <h2>My Diagrams</h2>
-          <Button variant="primary" style={newDiagramButtonStyle}>New Diagram</Button>
+          <Button variant="primary" onClick={this.togglePopup.bind(this)} style={newDiagramButtonStyle}>New Diagram</Button>
         </div>
-        <Diagrams diagrams={this.props.diagrams}/>
+        <Diagrams diagrams={this.props.diagrams} />
+
+        {this.state.showPopup ? 
+        <NewDiagramDialog closePopup={this.togglePopup.bind(this)}/>
+        : null  
+      }
       </div>
     )
   }
@@ -41,8 +57,8 @@ Dashboard.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    diagrams: state.posts,
-    auth: state.auth
+  diagrams: state.posts,
+  auth: state.auth
 });
 
-export default connect(mapStateToProps, {getDiagrams})(Dashboard);
+export default connect(mapStateToProps, { getDiagrams })(Dashboard);
