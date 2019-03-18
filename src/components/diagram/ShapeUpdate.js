@@ -6,7 +6,7 @@ class ShapeUpdate extends Component {
     super(props);
 
     this.state = {
-      id: this.props.shape.id,
+      sid: this.props.shape.sid,
       name: this.props.shape.name,
       x: this.props.shape.x,
       y: this.props.shape.y,
@@ -26,7 +26,7 @@ class ShapeUpdate extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const shape = {
-      id: this.state.id,
+      sid: this.state.sid,
       name: this.state.name,
       x: this.state.x,
       y: this.state.y,
@@ -38,7 +38,7 @@ class ShapeUpdate extends Component {
       alert('Width and Color must have a value')
     } else {
       this.setState({updateShape: {
-        id: shape.id,
+        sid: shape.sid,
         name: shape.name,
         x: shape.x,
         y: shape.y,

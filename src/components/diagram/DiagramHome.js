@@ -8,10 +8,10 @@ class DiagramHome extends Component {
         this.state = {
             diagram: {
                 name: 'Untitiled',
-                data: 'a,ab,b,bc,c',
+                dataSet: 'a,ab,b,bc,c',
                 shapes: [
                     {
-                        id: 1,
+                        sid: 1,
                         name: 'A',
                         x: 250,
                         y: 250,
@@ -19,7 +19,7 @@ class DiagramHome extends Component {
                         color: '#ff0000'
                     },
                     {
-                        id: 2,
+                        sid: 2,
                         name: 'B',
                         x: 200,
                         y: 200,
@@ -27,7 +27,7 @@ class DiagramHome extends Component {
                         color: '#00ff00'
                     },
                     {
-                        id: 3,
+                        sid: 3,
                         name: 'C',
                         x: 300,
                         y: 300,
@@ -42,7 +42,7 @@ class DiagramHome extends Component {
     update = (updateShape) => {
         this.setState({
             shapes: this.state.diagram.shapes.map(shape => {
-                if (shape.id === updateShape.id) {
+                if (shape.sid === updateShape.sid) {
                     shape.name = updateShape.name;
                     shape.x = updateShape.x;
                     shape.y = updateShape.y;

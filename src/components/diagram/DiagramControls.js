@@ -2,10 +2,26 @@ import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import DiagramName from './DiagramName';
 import DiagramShapes from './DiagramShapes'
+import axios from 'axios';
 
 // This component is for all the controls like updating and saving etc
 
 class DiagramControls extends Component {
+  constructor(props){
+    super(props);
+
+    this.onSave = this.onSave.bind(this);
+  }
+
+  onSave = (e) => {
+    e.preventDefault();
+    let diagram = this.props.diagram;
+    axios
+        .post('http://localhost:5000/api/diagram/user', diagram)
+        .then(result => console.log(result))
+        .catch(errors => console.log(errors));
+  }
+
   render() {
     return (
       <div style={formStyle}>
@@ -22,7 +38,7 @@ class DiagramControls extends Component {
             <Button variant="secondary" style={buttonStyle}>Verify</Button>
         </div>
         <div style={diagramControlComponentStyle}>
-            <Button variant="success" style={buttonStyle}>Save</Button>
+            <Button variant="success" style={buttonStyle} onClick={this.onSave}>Save</Button>
         </div>
       </div>
     )

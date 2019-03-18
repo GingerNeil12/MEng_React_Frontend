@@ -23,7 +23,7 @@ class Shape extends Component {
         <Button variant="primary" size="sm" style={buttonStyle} onClick={this.toggleDiv}>{this.props.shape.name}</Button>
         {this.state.show && 
             <div style={updateStyle}>
-              <ShapeUpdate key={this.props.shape.id} shape={this.props.shape} update={this.props.update}/>
+              <ShapeUpdate key={this.props.shape.sid} shape={this.props.shape} update={this.props.update}/>
             </div>
         }
       </div>
