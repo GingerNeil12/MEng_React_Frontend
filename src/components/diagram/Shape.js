@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
+import ShapeUpdate from './ShapeUpdate'
 
 class Shape extends Component {
 
@@ -20,6 +21,9 @@ class Shape extends Component {
     return (
       <div>
         <Button variant="primary" size="sm" style={buttonStyle} onClick={this.toggleDiv}>{this.props.shape.name}</Button>
+        {this.state.show && 
+            <ShapeUpdate key={this.props.shape.id} shape={this.props.shape}/>
+        }
       </div>
     )
   }
