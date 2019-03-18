@@ -14,6 +14,15 @@ class DiagramControls extends Component {
         <div style={diagramControlComponentStyle}>
             <DiagramName />
         </div>
+        <div style={diagramControlComponentStyle}>
+            <p>Diagram Update Goes here</p>
+        </div>
+        <div style={diagramControlComponentStyle}>
+            <p>Diagram Verify Goes here</p>
+        </div>
+        <div style={diagramControlComponentStyle}>
+            <p>Diagram Save goes here</p>
+        </div>
       </div>
     )
   }
