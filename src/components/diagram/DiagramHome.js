@@ -17,6 +17,7 @@ class DiagramHome extends Component {
                         name: 'A',
                         x: 250,
                         y: 250,
+                        width: 20,
                         color: '#ff0000'
                     },
                     {
@@ -24,6 +25,7 @@ class DiagramHome extends Component {
                         name: 'B',
                         x: 200,
                         y: 200,
+                        width: 20,
                         color: '#00ff00'
                     },
                     {
@@ -31,6 +33,7 @@ class DiagramHome extends Component {
                         name: 'C',
                         x: 300,
                         y: 300,
+                        width: 20,
                         color: '#0000ff'
                     }
                 ]
