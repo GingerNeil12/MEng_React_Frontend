@@ -16,7 +16,7 @@ class DiagramControls extends Component {
             <DiagramName name={this.props.diagram.name} />
         </div>
         <div style={diagramControlComponentStyle}>
-            <DiagramShapes shapes={this.props.diagram.shapes}/>
+            <DiagramShapes shapes={this.props.diagram.shapes} update={this.props.update}/>
         </div>
         <div style={diagramControlComponentStyle}>
             <Button variant="secondary" style={buttonStyle}>Verify</Button>

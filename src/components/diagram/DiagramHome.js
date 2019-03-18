@@ -40,11 +40,15 @@ class DiagramHome extends Component {
             }
         }
     }
+
+    update = (updateShape) => {
+        console.log(updateShape)
+    }
   render() {
     return (
       <div style={formStyle}>
         <div style={sectionOne}>
-            <DiagramControls diagram={this.state.diagram}/>
+            <DiagramControls diagram={this.state.diagram} update={this.update}/>
         </div>
         <div style={sectionTwo}>
             <p>Diagram</p>

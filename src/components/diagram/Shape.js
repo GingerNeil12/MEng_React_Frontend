@@ -22,7 +22,9 @@ class Shape extends Component {
       <div>
         <Button variant="primary" size="sm" style={buttonStyle} onClick={this.toggleDiv}>{this.props.shape.name}</Button>
         {this.state.show && 
-            <ShapeUpdate key={this.props.shape.id} shape={this.props.shape}/>
+            <div style={updateStyle}>
+              <ShapeUpdate key={this.props.shape.id} shape={this.props.shape} update={this.props.update}/>
+            </div>
         }
       </div>
     )
@@ -34,6 +36,11 @@ const buttonStyle = {
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '1em'
+}
+
+const updateStyle = {
+  textAlign: 'center',
+  float: 'center'
 }
 
 export default Shape;

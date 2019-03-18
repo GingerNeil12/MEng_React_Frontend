@@ -6,7 +6,7 @@ class DiagramShapes extends Component {
     return (
       <div style={formStyle}>
         {this.props.shapes.map((shape) => (
-            <Shape key={shape.id} shape={shape}/>
+            <Shape key={shape.id} shape={shape} update={this.props.update}/>
         ))}
       </div>
     )
