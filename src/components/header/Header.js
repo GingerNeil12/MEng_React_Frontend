@@ -11,32 +11,41 @@ class Header extends Component {
     onLogoutClick = (e) => {
         e.preventDefault();
         this.props.logoutUser(this.props.history);
-        //this.context.history.push('/login');
     }
 
     render() {
         const { isAuthenticated, user } = this.props.auth;
 
         const guestLinks = (
-            <Nav className="ml-auto">
-                <Nav.Link href="/register" style={LinkStyle}>Register</Nav.Link>
-                <Nav.Link href="/login" style={LinkStyle}>Login</Nav.Link>
-            </Nav>
+            <Navbar.Collapse id="toggle-navbar">
+                <Nav>
+                    <Nav.Link href="/about" style={LinkStyle}>About</Nav.Link>
+                </Nav>
+                <Nav className="ml-auto">
+                    <Nav.Link href="/register" style={LinkStyle}>Register</Nav.Link>
+                    <Nav.Link href="/login" style={LinkStyle}>Login</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
         )
 
         const authLinks = (
-            <Nav className="ml-auto">
-                <Nav.Link href="#" style={LinkStyle} onClick={this.onLogoutClick.bind(this)}>
-                    <img
-                        src={user.avatar}
-                        alt={user.name}
-                        style={AvatarStyle}
-                        className="rounded-circle"
-                        title="You must have a Gravatar connected email to display an avatar"
-                    />
-                    Logout
-                </Nav.Link>
-            </Nav>
+            <Navbar.Collapse id="toggle-navbar">
+                <Nav>
+                    <Nav.Link href="/dashboard" style={LinkStyle}>Dashboard</Nav.Link>
+                </Nav>
+                <Nav className="ml-auto">
+                    <Nav.Link href="#" style={LinkStyle} onClick={this.onLogoutClick.bind(this)}>
+                        <img
+                            src={user.avatar}
+                            alt={user.name}
+                            style={AvatarStyle}
+                            className="rounded-circle"
+                            title="You must have a Gravatar connected email to display an avatar"
+                        />
+                        Logout
+                    </Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
         )
 
         return (
@@ -47,9 +56,6 @@ class Header extends Component {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="toggle-navbar" />
                     <Navbar.Collapse id="toggle-navbar">
-                        <Nav>
-                            <Nav.Link href="/about" style={LinkStyle}>About</Nav.Link>
-                        </Nav>
                         {isAuthenticated ? authLinks : guestLinks}
                     </Navbar.Collapse>
                 </Container>
