@@ -7,29 +7,33 @@ class DiagramHome extends Component {
         super();
 
         this.state = {
-            shapes: [
-                {
-                    id: 1,
-                    name: 'A',
-                    x: 250,
-                    y: 250,
-                    color: '#ff0000'
-                },
-                {
-                    id: 2,
-                    name: 'B',
-                    x: 200,
-                    y: 200,
-                    color: '#00ff00'
-                },
-                {
-                    id: 3,
-                    name: 'C',
-                    x: 300,
-                    y: 300,
-                    color: '#0000ff'
-                }
-            ]
+            diagram: {
+                name: 'Untitiled',
+                data: 'a,ab,b,bc,c',
+                shapes: [
+                    {
+                        id: 1,
+                        name: 'A',
+                        x: 250,
+                        y: 250,
+                        color: '#ff0000'
+                    },
+                    {
+                        id: 2,
+                        name: 'B',
+                        x: 200,
+                        y: 200,
+                        color: '#00ff00'
+                    },
+                    {
+                        id: 3,
+                        name: 'C',
+                        x: 300,
+                        y: 300,
+                        color: '#0000ff'
+                    }
+                ]
+            }
         }
     }
   render() {
@@ -50,11 +54,12 @@ class DiagramHome extends Component {
 }
 
 const formStyle = {
-    width: '90%',
+    width: '95%',
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '1em',
-    display: 'flex'
+    display: 'flex',
+    textAlign: 'center'
 }
 
 const sectionOne = {
