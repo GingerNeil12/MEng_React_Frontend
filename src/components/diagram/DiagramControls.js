@@ -9,7 +9,7 @@ class DiagramControls extends Component {
     return (
       <div style={formStyle}>
         <div>
-            <Button variant="danger" href="/dashboard" style={cancelButtonStyle}>Cancel</Button>
+            <Button variant="danger" href="/dashboard" style={buttonStyle}>Cancel</Button>
         </div>
         <div style={diagramControlComponentStyle}>
             <DiagramName />
@@ -18,10 +18,10 @@ class DiagramControls extends Component {
             <p>Diagram Update Goes here</p>
         </div>
         <div style={diagramControlComponentStyle}>
-            <p>Diagram Verify Goes here</p>
+            <Button variant="secondary" style={buttonStyle}>Verify</Button>
         </div>
         <div style={diagramControlComponentStyle}>
-            <p>Diagram Save goes here</p>
+            <Button variant="success" style={buttonStyle}>Save</Button>
         </div>
       </div>
     )
@@ -34,7 +34,7 @@ const formStyle = {
     marginRight: 'auto'
 }
 
-const cancelButtonStyle = {
+const buttonStyle = {
     width: '100%',
     color: '#ffffff'
 }
