@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DiagramControls from './DiagramControls'
+import Canvas from './Canvas'
 
 class DiagramHome extends Component {
     constructor() {
@@ -66,7 +67,7 @@ class DiagramHome extends Component {
                     <DiagramControls diagram={this.state.diagram} update={this.update} updateName={this.updateName} />
                 </div>
                 <div style={sectionTwo}>
-                    <p>Diagram</p>
+                    <Canvas shapes={this.state.diagram.shapes}/>
                 </div>
                 <div style={sectionThree}>
                     <p>Verification</p>
