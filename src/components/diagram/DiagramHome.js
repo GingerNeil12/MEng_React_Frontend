@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DiagramControls from './DiagramControls'
 
 // This is for the layout and will control the shapes etc
 
@@ -40,7 +41,7 @@ class DiagramHome extends Component {
     return (
       <div style={formStyle}>
         <div style={sectionOne}>
-            <p>Diagram Controls</p>
+            <DiagramControls/>
         </div>
         <div style={sectionTwo}>
             <p>Diagram</p>
