@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import DiagramName from './DiagramName';
 import DiagramShapes from './DiagramShapes'
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 // This component is for all the controls like updating and saving etc
 
@@ -18,7 +19,10 @@ class DiagramControls extends Component {
     let diagram = this.props.diagram;
     axios
         .post('http://localhost:5000/api/diagram/user', diagram)
-        .then(result => console.log(result))
+        .then(result => {
+          alert('Diagram Saved!');
+          this.props.history.push('/dashboard');
+        })
         .catch(errors => console.log(errors));
   }
 
@@ -60,4 +64,4 @@ const diagramControlComponentStyle = {
     marginTop: '1em'
 }
 
-export default DiagramControls;
+export default withRouter(DiagramControls);
