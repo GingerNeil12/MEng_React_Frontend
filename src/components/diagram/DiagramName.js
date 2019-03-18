@@ -2,6 +2,25 @@ import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap';
 
 class DiagramName extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      name: this.props.name
+    }
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.updateName(this.state.name);
+  }
+
   render() {
     return (
         <Form id="diagramNameForm" style={formStyle}>
@@ -12,11 +31,12 @@ class DiagramName extends Component {
                 type="text"
                 placeholder="Diagram Name"
                 style={textBoxStyle}
-                value={this.props.name}
+                defaultValue={this.state.name}
+                onChange={this.onChange}
               />
             </Form.Group>
             <Form.Group id="saveButton">
-              <Button variant="primary" size="sm" style={buttonStyle}>Save Name</Button>
+              <Button variant="primary" size="sm" style={buttonStyle} onClick={this.onSubmit}>Save Name</Button>
             </Form.Group>
         </Form>
     )

@@ -13,7 +13,7 @@ class DiagramControls extends Component {
             <Button variant="danger" href="/dashboard" style={buttonStyle}>Cancel</Button>
         </div>
         <div style={diagramControlComponentStyle}>
-            <DiagramName name={this.props.diagram.name} />
+            <DiagramName name={this.props.diagram.name} updateName={this.props.updateName} />
         </div>
         <div style={diagramControlComponentStyle}>
             <DiagramShapes shapes={this.props.diagram.shapes} update={this.props.update}/>

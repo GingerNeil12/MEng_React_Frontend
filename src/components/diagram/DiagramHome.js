@@ -40,9 +40,9 @@ class DiagramHome extends Component {
     }
 
     update = (updateShape) => {
-        this.setState({shapes: this.state.diagram.shapes.map
-            (shape => {
-                if(shape.id === updateShape.id){
+        this.setState({
+            shapes: this.state.diagram.shapes.map(shape => {
+                if (shape.id === updateShape.id) {
                     shape.name = updateShape.name;
                     shape.x = updateShape.x;
                     shape.y = updateShape.y;
@@ -50,23 +50,30 @@ class DiagramHome extends Component {
                     shape.color = updateShape.color
                 }
                 return shape;
-            })})
+            })
+        })
+        console.log(this.state.diagram)
     }
-  render() {
-    return (
-      <div style={formStyle}>
-        <div style={sectionOne}>
-            <DiagramControls diagram={this.state.diagram} update={this.update}/>
-        </div>
-        <div style={sectionTwo}>
-            <p>Diagram</p>
-        </div>
-        <div style={sectionThree}>
-            <p>Verification</p>
-        </div>
-      </div>
-    )
-  }
+
+    updateName = (name) => {
+        console.log(this.state.diagram);
+    }
+
+    render() {
+        return (
+            <div style={formStyle}>
+                <div style={sectionOne}>
+                    <DiagramControls diagram={this.state.diagram} update={this.update} updateName={this.updateName} />
+                </div>
+                <div style={sectionTwo}>
+                    <p>Diagram</p>
+                </div>
+                <div style={sectionThree}>
+                    <p>Verification</p>
+                </div>
+            </div>
+        )
+    }
 }
 
 const formStyle = {
