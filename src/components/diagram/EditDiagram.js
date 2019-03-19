@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { getDiagram } from '../../actions/diagramActions'
 import Canvas from './Canvas'
 import EditControls from './EditControls'
 
 class EditDiagram extends Component {
+    componentDidMount() {
+        let diagramId = this.props.match.params.diagramId;
+        this.props.getDiagram(diagramId);
+        console.log(this.props.diagram);
+    }
     render() {
         return (
             <div style={formStyle}>
-                <div style={sectionOne}>
-                    <EditControls diagram={this.state.diagram} update={this.update} updateName={this.updateName} />
-                </div>
-                <div style={sectionTwo}>
-                    <Canvas shapes={this.state.diagram.shapes} />
-                </div>
-                <div style={sectionThree}>
-                    <p>Verification</p>
-                </div>
+                
             </div>
         )
     }
@@ -42,4 +40,8 @@ const sectionThree = {
     flex: '1'
 }
 
-export default EditDiagram;
+const mapStateToProps = state =>  ({
+    diagram: state.posts
+});
+
+export default connect(mapStateToProps, { getDiagram })(EditDiagram);
