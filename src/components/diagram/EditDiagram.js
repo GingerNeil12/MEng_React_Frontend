@@ -29,7 +29,7 @@ class EditDiagram extends Component {
         return (
             <div style={formStyle}>
                 <div style={sectionOne}>
-                    <EditControls />
+                    <EditControls diagram={this.state.diagram} />
                 </div>
                 <div style={sectionTwo}>
                     <Canvas shapes={this.state.diagram.shapes} />
