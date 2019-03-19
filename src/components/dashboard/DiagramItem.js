@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
 import PropTypes from 'prop-types';
 
 class DiagramItem extends Component {
@@ -11,7 +12,7 @@ class DiagramItem extends Component {
                         <p>{name}</p>
                     </div>
                     <div style={itemOptions}>
-                        <p>View | Edit</p>
+                        <p>View | <Button variant="primary" size="sm">Edit</Button></p>
                     </div>
                 </div>
             </div>
