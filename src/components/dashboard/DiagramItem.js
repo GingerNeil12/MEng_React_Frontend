@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 class DiagramItem extends Component {
@@ -12,7 +12,7 @@ class DiagramItem extends Component {
                         <p>{name}</p>
                     </div>
                     <div style={itemOptions}>
-                        <p>View | <Button variant="primary" size="sm">Edit</Button></p>
+                        <p>View | <Link to="#" style={linkStyle}>Edit</Link></p>
                     </div>
                 </div>
             </div>
@@ -38,6 +38,11 @@ const itemTitle = {
 const itemOptions = {
     display: 'inline-block',
     float: 'right'
+}
+
+const linkStyle = {
+    color: '#0645AD',
+    textDecoration: 'underline'
 }
 
 DiagramItem.propTypes = {
