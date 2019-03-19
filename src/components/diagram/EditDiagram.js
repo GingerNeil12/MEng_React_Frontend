@@ -4,34 +4,49 @@ import Canvas from './Canvas'
 import EditControls from './EditControls'
 
 class EditDiagram extends Component {
-    constructor(){
+    constructor() {
         super();
 
         this.state = {
-            diagram: {}
+            diagram: {},
+            loaded: false
         }
     }
+
     componentDidMount() {
-        let diagramId = this.props.match.params.diagramId;
+        let id= this.props.match.params.diagramId;
         axios
-            .get(`http://localhost:5000/api/diagram/id/${diagramId}`)
+            .get(`http://localhost:5000/api/diagram/id/${id}`)
             .then((result) => {
-                console.log(result.data);
-                this.setState({diagram: result.data});
+                this.setState({ diagram: result.data });
             })
             .catch((error) => {
                 console.log(error);
             })
     }
 
-    onClick = (e) => {
-        console.log(this.state.diagram);
+    content() {
+        return (
+            <div style={formStyle}>
+                <div style={sectionOne}>
+                    <EditControls />
+                </div>
+                <div style={sectionTwo}>
+                    <Canvas shapes={this.state.diagram.shapes} />
+                </div>
+                <div style={sectionThree}>
+                    VERIFICATION
+                </div>
+            </div>
+        )
     }
 
     render() {
         return (
-            <div style={formStyle}>
-                <button onClick={this.onClick.bind(this)}>Push Me</button>
+            <div>
+                {this.state && this.state.diagram.shapes && 
+                    this.content()
+                }
             </div>
         )
     }
