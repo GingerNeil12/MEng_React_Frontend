@@ -1,19 +1,37 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { getDiagram } from '../../actions/diagramActions'
+import axios from 'axios'
 import Canvas from './Canvas'
 import EditControls from './EditControls'
 
 class EditDiagram extends Component {
+    constructor(){
+        super();
+
+        this.state = {
+            diagram: {}
+        }
+    }
     componentDidMount() {
         let diagramId = this.props.match.params.diagramId;
-        this.props.getDiagram(diagramId);
-        console.log(this.props.diagram);
+        axios
+            .get(`http://localhost:5000/api/diagram/id/${diagramId}`)
+            .then((result) => {
+                console.log(result.data);
+                this.setState({diagram: result.data});
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
+
+    onClick = (e) => {
+        console.log(this.state.diagram);
+    }
+
     render() {
         return (
             <div style={formStyle}>
-                
+                <button onClick={this.onClick.bind(this)}>Push Me</button>
             </div>
         )
     }
@@ -40,8 +58,4 @@ const sectionThree = {
     flex: '1'
 }
 
-const mapStateToProps = state =>  ({
-    diagram: state.posts
-});
-
-export default connect(mapStateToProps, { getDiagram })(EditDiagram);
+export default EditDiagram;

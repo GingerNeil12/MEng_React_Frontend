@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 class DiagramItem extends Component {
     render() {
         const { name } = this.props.diagram;
+        const editLink = {
+            pathname: '/editDiagram/' + this.props.diagram._id
+        }
         return (
             <div style={formStyle}>
                 <div style={itemStyle}>
@@ -12,7 +15,7 @@ class DiagramItem extends Component {
                         <p>{name}</p>
                     </div>
                     <div style={itemOptions}>
-                        <p>View | <Link to="#" style={linkStyle}>Edit</Link></p>
+                        <p>View | <Link to={editLink} style={linkStyle}>Edit</Link></p>
                     </div>
                 </div>
             </div>

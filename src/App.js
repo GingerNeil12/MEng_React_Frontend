@@ -14,6 +14,7 @@ import Login from './components/login/Login';
 import Header from './components/header/Header';
 import Dashboard from './components/dashboard/Dashboard';
 import DiagramHome from './components/diagram/DiagramHome';
+import EditDiagram from './components/diagram/EditDiagram';
 
 import './App.css';
 
@@ -36,6 +37,7 @@ class App extends Component {
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/dashboard" component={Dashboard}/>
                         <Route exact path='/diagramHome' component={DiagramHome}/>
+                        <Route exact path='/editDiagram/:diagramId' component={EditDiagram}/>
                     </div>
                 </Router>
             </Provider>
