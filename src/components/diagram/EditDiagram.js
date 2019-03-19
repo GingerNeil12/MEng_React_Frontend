@@ -14,7 +14,7 @@ class EditDiagram extends Component {
     }
 
     componentDidMount() {
-        let id= this.props.match.params.diagramId;
+        let id = this.props.match.params.diagramId;
         axios
             .get(`http://localhost:5000/api/diagram/id/${id}`)
             .then((result) => {
@@ -25,11 +25,31 @@ class EditDiagram extends Component {
             })
     }
 
+    update = (updateShape) => {
+        this.setState({
+            shapes: this.state.diagram.shapes.map(shape => {
+                if (shape.sid === updateShape.sid) {
+                    shape.name = updateShape.name;
+                    shape.x = updateShape.x;
+                    shape.y = updateShape.y;
+                    shape.width = updateShape.width;
+                    shape.color = updateShape.color
+                }
+                return shape;
+            })
+        })
+        console.log(this.state.diagram)
+    }
+
+    updateName = (name) => {
+        console.log(name)
+    }
+
     content() {
         return (
             <div style={formStyle}>
                 <div style={sectionOne}>
-                    <EditControls diagram={this.state.diagram} />
+                    <EditControls diagram={this.state.diagram} update={this.update} updateName={this.updateName} />
                 </div>
                 <div style={sectionTwo}>
                     <Canvas shapes={this.state.diagram.shapes} />
@@ -44,7 +64,7 @@ class EditDiagram extends Component {
     render() {
         return (
             <div>
-                {this.state && this.state.diagram.shapes && 
+                {this.state && this.state.diagram.shapes &&
                     this.content()
                 }
             </div>
